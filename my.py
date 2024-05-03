@@ -5,3 +5,7 @@ class Note:
         self.body = body
         self.timestamp = timestamp
 
+class NoteManager:
+    def __init__(self, filename='notes.json'):
+        self.filename = filename
+        self.notes = self.load_notes()
