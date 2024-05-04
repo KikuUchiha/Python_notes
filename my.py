@@ -13,7 +13,7 @@ class NoteManager:
     def __init__(self, filename='notes.json'):
         self.filename = filename
         self.notes = self.load_notes()
-
+    #загружает заметки из файла JSON
     def load_notes(self):
         if os.path.exists(self.filename):
             with open(self.filename, 'r') as file:
@@ -21,3 +21,8 @@ class NoteManager:
                 return [Note(n['id'], n['title'], n['body'], n['timestamp']) for n in notes_json]
         else:
             return [] 
+    #сохраняет заметки в файл JSON
+    def save_notes(self):
+        with open(self.filename, 'w') as file:
+            notes_json = [{'id': note.id, 'title': note.title, 'body': note.body, 'timestamp': note.timestamp} for note in self.notes]
+            json.dump(notes_json, file, indent=4)
