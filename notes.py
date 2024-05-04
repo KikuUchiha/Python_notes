@@ -75,3 +75,8 @@ def main():
                 print("Заметка успешно отредактирована!")
             else:
                 print("Заметка с таким ID не найдена.")
+
+        elif command == "delete":
+            id = int(input("Введите ID заметки для удаления: "))
+            note_manager.delete_note(id)
+            print("Заметка успешно удалена!")
