@@ -46,3 +46,10 @@ class NoteManager:
                 self.save_notes()
                 return True
         return False
+    #возвращает список заметок, с фильтрацией по дате
+    def list_notes(self, date_filter=None):
+        if date_filter:
+            filtered_notes = [note for note in self.notes if note.timestamp.startswith(date_filter)]
+            return filtered_notes
+        else:
+            return self.notes
