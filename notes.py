@@ -80,3 +80,12 @@ def main():
             id = int(input("Введите ID заметки для удаления: "))
             note_manager.delete_note(id)
             print("Заметка успешно удалена!")
+        
+        elif command == "list":
+            date_filter = input("Введите фильтр даты (гггг-мм-дд) или оставьте пустым: ")
+            notes = note_manager.list_notes(date_filter)
+            if notes:
+                for note in notes:
+                    print(f"ID: {note.id}, Заголовок: {note.title}, Тело: {note.body}, Время создания: {note.timestamp}")
+            else:
+                print("Заметок не найдено.")
