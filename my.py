@@ -36,3 +36,13 @@ class NoteManager:
     def delete_note(self, id):
         self.notes = [note for note in self.notes if note.id != id]
         self.save_notes()
+    #редактирование
+    def edit_note(self, id, title, body):
+        for note in self.notes:
+            if note.id == id:
+                note.title = title
+                note.body = body
+                note.timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                self.save_notes()
+                return True
+        return False
