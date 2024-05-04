@@ -53,3 +53,16 @@ class NoteManager:
             return filtered_notes
         else:
             return self.notes
+        
+def main():
+    note_manager = NoteManager()
+
+    while True:
+        print("Введите команду: (add, edit, delete, list, exit)")
+        command = input()
+
+        if command == "add":
+            title = input("Введите заголовок заметки: ")
+            body = input("Введите тело заметки: ")
+            note_manager.add_note(title, body)
+            print("Заметка успешно добавлена!")
