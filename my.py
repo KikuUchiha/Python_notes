@@ -26,3 +26,9 @@ class NoteManager:
         with open(self.filename, 'w') as file:
             notes_json = [{'id': note.id, 'title': note.title, 'body': note.body, 'timestamp': note.timestamp} for note in self.notes]
             json.dump(notes_json, file, indent=4)
+    #добавление
+    def add_note(self, title, body):
+        timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        id = len(self.notes) + 1
+        self.notes.append(Note(id, title, body, timestamp))
+        self.save_notes()
