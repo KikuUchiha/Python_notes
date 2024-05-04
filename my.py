@@ -32,3 +32,7 @@ class NoteManager:
         id = len(self.notes) + 1
         self.notes.append(Note(id, title, body, timestamp))
         self.save_notes()
+    #удаление
+    def delete_note(self, id):
+        self.notes = [note for note in self.notes if note.id != id]
+        self.save_notes()
