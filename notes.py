@@ -66,3 +66,12 @@ def main():
             body = input("Введите тело заметки: ")
             note_manager.add_note(title, body)
             print("Заметка успешно добавлена!")
+
+        elif command == "edit":
+            id = int(input("Введите ID заметки для редактирования: "))
+            title = input("Введите новый заголовок заметки: ")
+            body = input("Введите новое тело заметки: ")
+            if note_manager.edit_note(id, title, body):
+                print("Заметка успешно отредактирована!")
+            else:
+                print("Заметка с таким ID не найдена.")
