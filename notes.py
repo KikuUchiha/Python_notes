@@ -89,3 +89,6 @@ def main():
                     print(f"ID: {note.id}, Заголовок: {note.title}, Тело: {note.body}, Время создания: {note.timestamp}")
             else:
                 print("Заметок не найдено.")
+
+        elif command == "exit":
+            break
